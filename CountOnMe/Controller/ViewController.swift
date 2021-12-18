@@ -29,7 +29,7 @@ class ViewController: UIViewController {
         return elements.last != "+" && elements.last != "-"
     }
     
-    var expressionHaveResult: Bool {    @
+    var expressionHaveResult: Bool {
         return textView.text.firstIndex(of: "=") != nil
     }
     
