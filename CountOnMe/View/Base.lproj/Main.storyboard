@@ -212,6 +212,9 @@
                                         <state key="normal" title="×">
                                             <color key="titleColor" red="0.91125309470000004" green="0.91125309470000004" blue="0.9112530351" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="tappedMultiplicationButton:" destination="eqK-jh-KKu" eventType="touchUpInside" id="GZi-9b-MCm"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WOb-lU-AxO" userLabel="÷">
                                         <rect key="frame" x="210" y="0.0" width="90" height="63"/>
@@ -224,6 +227,9 @@
                                         <state key="normal" title="÷">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="tappedDivisionButton:" destination="eqK-jh-KKu" eventType="touchUpInside" id="eCY-Pf-DwW"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
