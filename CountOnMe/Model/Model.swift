@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+class Model {
+    func expressionHaveResult(String) -> <#Return Type#>{
+        return String.firstIndex(of: "=") != nil
+    }
+}

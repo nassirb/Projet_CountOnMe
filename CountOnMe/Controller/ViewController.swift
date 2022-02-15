@@ -29,9 +29,9 @@ class ViewController: UIViewController {
         return elements.last != "+" && elements.last != "-"
     }
     
-    var expressionHaveResult: Bool {
-        return textView.text.firstIndex(of: "=") != nil
-    }
+//    var expressionHaveResult: Bool {
+//        return textView.text.firstIndex(of: "=") != nil
+//    }
     
     // View Life cycles
     override func viewDidLoad() {
@@ -107,7 +107,7 @@ class ViewController: UIViewController {
         
         // Create local copy of operations
         var operationsToReduce = elements
-        
+        print("1" , operationsToReduce)
         // Iterate over operations while an operand still here
         while operationsToReduce.count > 1 {
             let left = Int(operationsToReduce[0])!
@@ -116,15 +116,17 @@ class ViewController: UIViewController {
             
             let result: Int
             switch operand {
-            case "+": result = left + right
-            case "-": result = left - right
-            case "x": result = left * right
-            case "÷": result = left / right
-            default: fatalError("Unknown operator !")
+                case "+": result = left + right
+                case "-": result = left - right
+                case "x": result = left * right
+                case "÷": result = left / right
+                default: fatalError("Unknown operator !")
             }
-            
+            print("2" ,operationsToReduce)
             operationsToReduce = Array(operationsToReduce.dropFirst(3))
+            print("3" ,operationsToReduce)
             operationsToReduce.insert("\(result)", at: 0)
+            print("4" ,operationsToReduce)
         }
         
         textView.text.append(" = \(operationsToReduce.first!)")
