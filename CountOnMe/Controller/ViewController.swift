@@ -12,6 +12,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var textView: UITextView!
     @IBOutlet var numberButtons: [UIButton]!
     
+    let model: Model = Model()
+    
     var  elements: [String] {
         return textView.text.split(separator: " ").map { "\($0)" }
     }
@@ -46,7 +48,7 @@ class ViewController: UIViewController {
             return
         }
         
-        if expressionHaveResult {
+        if model.expressionHaveResult(text: textView.text) {
             textView.text = ""
         }
         

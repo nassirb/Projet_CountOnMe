@@ -9,7 +9,7 @@
 import Foundation
 
 class Model {
-    func expressionHaveResult(String) -> <#Return Type#>{
-        return String.firstIndex(of: "=") != nil
+    func expressionHaveResult(text: String) -> Bool{
+        return text.firstIndex(of: "=") != nil
     }
 }
