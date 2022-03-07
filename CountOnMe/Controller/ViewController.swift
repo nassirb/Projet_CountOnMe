@@ -19,17 +19,17 @@ class ViewController: UIViewController {
     }
     
     // Error check computed variables
-    var expressionIsCorrect: Bool {
-        return elements.last != "+" && elements.last != "-"
-    }
+//    var expressionIsCorrect: Bool {
+//        return elements.last != "+" && elements.last != "-"
+//    }
+//
+//    var expressionHaveEnoughElement: Bool {
+//        return elements.count >= 3
+//    }
     
-    var expressionHaveEnoughElement: Bool {
-        return elements.count >= 3
-    }
-    
-    var canAddOperator: Bool {
-        return elements.last != "+" && elements.last != "-"
-    }
+//    var canAddOperator: Bool {
+//        return elements.last != "+" && elements.last != "-"
+//    }
     
 //    var expressionHaveResult: Bool {
 //        return textView.text.firstIndex(of: "=") != nil
@@ -56,7 +56,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func tappedAdditionButton(_ sender: UIButton) {
-        if canAddOperator {
+        if model.canAddOperator(elements: elements) {
             textView.text.append(" + ")
         } else {
             let alertVC = UIAlertController(title: "Zéro!", message: "Un operateur est déja mis !", preferredStyle: .alert)
@@ -66,7 +66,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func tappedSubstractionButton(_ sender: UIButton) {
-        if canAddOperator {
+        if model.canAddOperator(elements: elements) {
             textView.text.append(" - ")
         } else {
             let alertVC = UIAlertController(title: "Zéro!", message: "Un operateur est déja mis !", preferredStyle: .alert)
@@ -76,7 +76,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func tappedMultiplicationButton(_ sender: UIButton) {
-        if canAddOperator {
+        if model.canAddOperator(elements: elements) {
             textView.text.append(" x ")
         } else {
             let alertVC = UIAlertController(title: "Zéro!", message: "Un operateur est déja mis !", preferredStyle: .alert)
@@ -86,7 +86,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func tappedDivisionButton(_ sender: UIButton) {
-        if canAddOperator {
+        if model.canAddOperator(elements: elements) {
             textView.text.append(" ÷ ")
         } else {
             let alertVC = UIAlertController(title: "Zéro!", message: "Un operateur est déja mis !", preferredStyle: .alert)
@@ -95,13 +95,13 @@ class ViewController: UIViewController {
         }
     }
     @IBAction func tappedEqualButton(_ sender: UIButton) {
-        guard expressionIsCorrect else {
+        guard model.expressionIsCorrect(elements: elements) else {
             let alertVC = UIAlertController(title: "Zéro!", message: "Entrez une expression correcte !", preferredStyle: .alert)
             alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
             return self.present(alertVC, animated: true, completion: nil)
         }
         
-        guard expressionHaveEnoughElement else {
+        guard model.expressionHaveEnoughElement(elements: elements) else {
             let alertVC = UIAlertController(title: "Zéro!", message: "Démarrez un nouveau calcul !", preferredStyle: .alert)
             alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
             return self.present(alertVC, animated: true, completion: nil)
